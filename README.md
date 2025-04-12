@@ -45,6 +45,11 @@ This breaks any other CSS that has syntaxes that may not be covered in repositor
     }
 }
 
+--default-animation-play-state: unset;
+@supports not (animation-timeline: any) {
+    --default-animation-play-state: paused;
+}
+
 scroll-aware[on-scroll] {
     animation: rotate-1 linear both;
 
@@ -55,9 +60,8 @@ scroll-aware[on-scroll] {
     animation-timeline: var(--rotate-1-animation-timeline);
     animation-range: var(--rotate-1-animation-range);
 
-    /** Following lines needed only by Firefox and Safari */
     animation-duration: 1ms;
-    animation-play-state: paused;
+    animation-play-state: var(--default-animation-play-state);
 }
 
 scroll-aware[on-above] {
@@ -70,9 +74,8 @@ scroll-aware[on-above] {
     animation-timeline: var(--zoom-out-animation-timeline);
     animation-range: var(--zoom-out-animation-range);
 
-    /** Following lines needed only by Firefox and Safari */
     animation-duration: 1ms;
-    animation-play-state: paused;
+    animation-play-state: var(--default-animation-play-state);
 }
 ```
 

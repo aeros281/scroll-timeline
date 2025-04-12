@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scroll Check</title>
+        <script src="../../dist/main.js"></script>
+        <style>
+
+            * {
+                box-sizing: border-box;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            scroll-aware > * {
+                margin: 50px;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                justify-items: stretch;
+                background-color: lightblue;
+                font-size: 400px;
+                height: 500px;
+                text-align: center;
+            }
+
+            @keyframes rotate-1 {
+                0% {
+                    rotate: 0deg;
+                }
+                20% {
+                    rotate: 60deg;
+                }
+                40% {
+                    rotate: 120deg;
+                }
+                60% {
+                    rotate: 180deg;
+                }
+                80% {
+                    rotate: 240deg;
+                }
+                100% {
+                    rotate: 360deg;
+                }
+            }
+
+            @keyframes zoom-out {
+                0% {
+                    scale: 1;
+                }
+                100% {
+                    scale: 0.2;
+                }
+            }
+
+            
+            @keyframes fade-in {
+                0% {
+                    opacity: 0.2;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            scroll-aware[on-scroll] {
+                animation: rotate-1 linear both;
+
+                /** Create following variables to map to animation-name */
+                --rotate-1-animation-timeline: scroll();
+                --rotate-1-animation-range: 0 20%;
+
+                animation-timeline: var(--rotate-1-animation-timeline);
+                animation-range: var(--rotate-1-animation-range);
+
+                /** Following lines needed only by Firefox and Safari */
+                animation-duration: 1ms;
+                animation-play-state: paused;
+            }
+
+            scroll-aware[on-above] {
+                animation: zoom-out linear both;
+
+                /** Create following variables to map to animation-name */
+                --zoom-out-animation-timeline: view();
+                --zoom-out-animation-range: exit-crossing 0 exit-crossing 100%;
+
+                animation-timeline: var(--zoom-out-animation-timeline);
+                animation-range: var(--zoom-out-animation-range);
+
+                /** Following lines needed only by Firefox and Safari */
+                animation-duration: 1ms;
+                animation-play-state: paused;
+            }
+
+            
+            scroll-aware[on-top-half] {
+                animation: fade-in linear both;
+
+                --fade-in-animation-timeline: view();
+                --fade-in-animation-range: cover 0 cover 50%;
+
+                animation-timeline: var(--fade-in-animation-timeline);
+                animation-range: var(--fade-in-animation-range);
+
+                /** Following lines needed only by Firefox and Safari */
+                animation-duration: 1ms;
+                animation-play-state: paused;
+            }
+        </style>
+    </head>
+    <body>
+
+        <main>
+
+            <scroll-aware on-scroll="1">
+                <div>A</div>
+            </scroll-aware>
+
+            <scroll-aware on-above="1">
+                <div>B</div>
+            </scroll-aware>
+
+            <scroll-aware on-top-half="1">
+                <div>C</div>
+            </scroll-aware>
+
+            <scroll-aware>
+                <div>D</div>
+            </scroll-aware>
+        </main>
+
+    </body>
+</html>

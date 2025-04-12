@@ -14,7 +14,8 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "git push --follow-tags"
   },
   "devDependencies": {
     "ts-loader": "^9.5.1",

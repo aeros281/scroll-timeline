@@ -1,0 +1,3 @@
+[submodule "scroll-timeline"]
+	path = scroll-timeline
+	url = https://github.com/flackr/scroll-timeline.git

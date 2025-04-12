@@ -7,11 +7,14 @@ This breaks any other CSS that has syntaxes that may not be covered in repositor
 
 # Usage
 
-1. `npm install -s @web-atoms/scroll-timeline`
-2. Set additional `animation-timeline` and `animation-range`, through CSS variables as shown below. This is necessary to avoid parsing and resolving many CSS styles at runtime and which helps in improving performance.
-3. And you must write CSS in such a way that `animation-play-state: pause` must be set only for non supported browsers as shown below.
+1. Set additional `animation-timeline` and `animation-range`, through CSS variables as shown below. This is necessary to avoid parsing and resolving many CSS styles at runtime and which helps in improving performance.
+2. And you must write CSS in such a way that `animation-play-state: pause` must be set only for non supported browsers as shown below.
 
 # Example
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@web-atoms/scroll-timeline@latest/dist/main.js"></script>
+```
 
 ```css
 

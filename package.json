@@ -1,6 +1,6 @@
 {
   "name": "@web-atoms/scroll-timeline",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ViewTimeline and ScrollTimeline Polyfill without CSS Parser",
   "homepage": "https://github.com/web-atoms/scroll-timeline#readme",
   "bugs": {

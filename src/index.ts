@@ -64,7 +64,8 @@ const changeAnimations = (e: HTMLElement) => {
             if (!timeline) {
                 return;
             }
-            const na = new (Animation as any)(a.effect, timeline, options);
+            const effect = new KeyframeEffect(e, (a.effect as KeyframeEffect).getKeyframes());
+            const na = new (Animation as any)(effect, timeline, options);
             na.play();
         }
     } catch (error) {

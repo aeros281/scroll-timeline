@@ -1,5 +1,5 @@
 # Scroll-Timeline Polyfill
-ViewTimeline and ScrollTimeline Polyfill without CSS Parser
+ViewTimeline and ScrollTimeline Polyfill without CSS Parser, Inspired from original [scroll-timeline](https://github.com/flackr/scroll-timeline).
 
 # Why?
 Scroll Timeline by original [scroll-timeline](https://github.com/flackr/scroll-timeline) at relies on parsing CSS at runtime. Which is bad for performance.

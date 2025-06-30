@@ -472,8 +472,8 @@ export class ScrollTimeline {
     const scrollPos = directionAwareScrollOffset(container, axis);
     const maxScrollPos = calculateMaxScrollOffset(container, axis);
 
-    return maxScrollPos > 0 ? CSS.percent(100 * scrollPos / maxScrollPos)
-                            : CSS.percent(100);
+    const progress = maxScrollPos > 0 ? Math.max(0, Math.min(1, scrollPos / maxScrollPos)) : 1
+    return CSS.percent(100 * progress)
   }
 
   get __polyfill() {

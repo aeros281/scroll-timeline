@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Scroll Check</title>
+  <script src="../../dist/main.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    scroll-aware>* {
+      margin: 50px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-items: stretch;
+      background-color: lightblue;
+      font-size: 400px;
+      height: 500px;
+      text-align: center;
+    }
+
+    @keyframes rotate-1 {
+      0% {
+        rotate: 0deg;
+      }
+
+      100% {
+        rotate: 240deg;
+      }
+    }
+
+    @keyframes zoom-out {
+      0% {
+        scale: 1;
+      }
+
+      100% {
+        scale: 0.2;
+      }
+    }
+
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0.2;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    scroll-aware[on-scroll] {
+      animation: rotate-1 linear both;
+
+      /** Create following variables to map to animation-name */
+      --rotate-1-animation-timeline: scroll();
+      --rotate-1-animation-range: 0 100%;
+
+      animation-timeline: var(--rotate-1-animation-timeline);
+      animation-range: var(--rotate-1-animation-range);
+
+      /** Following lines needed only by Firefox and Safari */
+      animation-duration: 1ms;
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <scroll-aware on-scroll="1">
+      <div>A</div>
+    </scroll-aware>
+  </main>
+
+</body>
+
+</html>
